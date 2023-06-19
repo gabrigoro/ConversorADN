@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            color: #333;
+            text-align: center; /* Centrar el título */
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Conversor de texto a ADN</h2>
+
+<form action="">
+  <label for="texto">Introduce tu texto:</label><br>
+  <input type="text" id="texto" name="texto"><br>
+  <input type="button" value="Convertir" onclick="convertir()">
+  <textarea id="resultado" rows="4"></textarea><br> <!-- Cambiar el párrafo por una caja de texto -->
+  <input type="button" value="Copiar resultado" onclick="copiarAlPortapapeles()"> <!-- Botón para copiar el resultado -->
+</form>
+
+<script src="script.js"></script>
+
+<script>
+    function copiarAlPortapapeles() {
+        /* Obtener el elemento de texto */
+        var copiarTexto = document.getElementById("resultado");
+
+        /* Seleccionar el texto del elemento de texto */
+        copiarTexto.select();
+        copiarTexto.setSelectionRange(0, 99999); /* Para dispositivos móviles */
+
+        /* Copiar el texto al portapapeles */
+        document.execCommand("copy");
+
+        /* Alertar al usuario que el texto ha sido copiado */
+        alert("Copiado al portapapeles: " + copiarTexto.value);
+    }
+</script>
+
+</body>
+</html>
